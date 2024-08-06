@@ -8,10 +8,10 @@ let connection = createPool({
     password: process.env.passwordDb,
     database: process.env.dbName,
     multipleStatements: true,
-    connectionLimit: 30
+    connectionLimit: 30,
 })
-connection.on('connection',(err)=>{
-    if(err) throw new Error('Unable to Connect ^(--)^')
+connection.on('connection',(pool)=>{
+    if(!pool) throw new Error('Unable to Connect ^(--)^')
 })
 export{
     connection
