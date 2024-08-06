@@ -1,5 +1,5 @@
 import {createPool} from "mysql2";
-import "dotnev/config"
+import "dotenv/config"
 import { error } from "console"
 
 let connection = createPool({
