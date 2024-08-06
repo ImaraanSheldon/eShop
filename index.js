@@ -20,7 +20,7 @@ router.get('/users', (req, res)=>{
             if(err) throw new Error('Unable to find Users')
                 res.json({
                     status: res.statusCode,
-                    results
+                    results      
                 })
         }catch(e){
             res.json({
@@ -29,9 +29,9 @@ router.get('/users', (req, res)=>{
             })
         }
         
-    })
-    
+    })  
 })
 app.listen(port, ()=>{
     console.log(`server is running on port ${port}`)
+    // console.log(`${strQry}`)
 })

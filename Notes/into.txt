@@ -1,0 +1,13 @@
+-Make a new repository on github.
+-Then in command-line cd into your Node_Workshop.
+-'git clone repo-link'
+-'npm init -y'
+-'npm i express mysql2 dotenv cors'
+-'code .'
+-make a '.env' file
+-make a '.gitingnore' file
+-to the '.gitignore' file add the '.env' & 'node_modules' files/folders 
+-to package,json add ' "type": "modules" ' & ' "start": "node index.js"
+-Back to command-line run 'git checkout -b backend' then add commit & push.
+...
+Basic Setup Complete!
