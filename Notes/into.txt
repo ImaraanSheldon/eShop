@@ -2,7 +2,7 @@
 -Then in command-line cd into your Node_Workshop.
 -'git clone repo-link'
 -'npm init -y'
--'npm i express mysql2 dotenv cors'
+-'npm i express mysql2 dotenv cors jsonwebtoken bcrypt'
 -'code .'
 -make a '.env' file
 -make a '.gitingnore' file
