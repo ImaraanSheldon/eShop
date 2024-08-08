@@ -15,6 +15,26 @@ function createToken(user){
     }
 )
 }
+function verifyToken(req,res,next){
+    const token = req?.headers["authorization"]
+    if(token){
+        if(
+            verify(token, process.env.SECRET_KEY)){
+                next()
+            }else{
+                res?.json({
+                    status:res.statusCode,
+                    msg: 'Give correct infomation'
+                })
+            }
+    }else{
+    res?.json({
+        status: res.statusCode,
+        msg: 'please login'
+    })
+}
+}
 export{
-    createToken
+    createToken,
+    verifyToken
 }
