@@ -1,6 +1,6 @@
 import {createPool} from "mysql2";
 import "dotenv/config"
-import { error } from "console"
+// import { error } from "console"
 
 let connection = createPool({
     host:process.env.hostDb,
