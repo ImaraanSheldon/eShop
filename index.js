@@ -2,7 +2,7 @@ import express from 'express'
 import path from 'path'
 import { connection as db } from './config/index.js'
 import { createToken } from './middleware/authenticateUser.js'
-import { hash } from 'bcrypt'
+import { hash, compare } from 'bcrypt'
 import bodyParser from 'body-parser'
 
 // Create an express app
@@ -24,7 +24,7 @@ router.get('^/$|/eShop', (req, res)=>{
 // all data
 router.get('/Users', (req, res)=>{
     const strQry = `
-    SELECT firstName, lastName, age, emailAdd FROM Users;
+    SELECT firstName, lastName, age, emailAdd, userRole, profileUrl FROM Users;
     `
     db.query(strQry, (err, results)=>{
         try{
@@ -146,10 +146,10 @@ router.post('/login', (req, res)=>{
     try{
         const {emailAdd, password} = req.body
         const strQry = `
-        SELECT userID, firstName, lastName, age, emailAdd, password FROM Users WHERE emailAdd = ${emailAdd}
+        SELECT userID, firstName, lastName, age, emailAdd, userRole, profileUrl, password FROM Users WHERE emailAdd = '${emailAdd}'
         `
         db.query(strQry, async (err, result)=>{
-            if(err) throw new Error('To login please review your query.')
+            if(err) throw new Error('ok')
             if(!result?.length){
                 res.json({
                     status: 401,
