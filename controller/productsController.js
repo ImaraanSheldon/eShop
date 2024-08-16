@@ -1,12 +1,10 @@
 import express from 'express';
-import { Products } from '../model/index.js';
+import { products } from '../model/index.js';
 import bodyParser from 'body-parser';
 import { verifyToken } from '../middleware/authenticateUser.js';
 
 const productsRouter = express.Router();
 productsRouter.use(bodyParser.json());
-
-const products = new Products(); // Instantiate the Products class
 
 // Fetch all products
 productsRouter.get('/',verifyToken, (req, res) => {
@@ -18,7 +16,7 @@ productsRouter.get('/recent', (req, res) => {
 });
 
 // Fetch a single product by ID
-productsRouter.get('/:id',verifyToken, (req, res) => {
+productsRouter.get('/:id', (req, res) => {
     products.fetchProduct(req, res);
 });
 

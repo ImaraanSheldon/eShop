@@ -1,22 +1,23 @@
-import express from 'express';
-import path from 'path';
-import { userRouter } from './controller/userController.js';
-import { productsRouter } from './controller/productsController.js';
-import bodyParser from 'body-parser';
+import { userRouter } from "./controller/userController.js";
+import { productsRouter } from "./controller/productsController.js";
+import path from 'path'
+import express from 'express'
+import bodyParser from "body-parser";
+
 
 // Create an express app
 const app = express();
 const port = process.env.PORT || 4000;
+
+// Routers
+app.use('/users', userRouter);
+app.use('/products', productsRouter);
 
 // Middleware
 app.use(express.static('./static'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// Routers
-app.use('/users', userRouter);
-app.use('/products', productsRouter);
 
 // Endpoint
 app.get('^/$|/eShop', (req, res) => {
