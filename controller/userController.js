@@ -1,18 +1,17 @@
 import express from 'express';
-import { Users } from '../model/users.js';
+import { users } from '../model/index.js';
 import bodyParser from 'body-parser';
-import path from 'path';
+// import path from 'path';
 
 const userRouter = express.Router();
-const users = new Users(); // Instantiate the Users class
 
 // Middleware to parse JSON requests
 userRouter.use(bodyParser.json());
 
 // Serve the main HTML file
-userRouter.get('^/$|/eShop', (req, res) => {
-    res.status(200).sendFile(path.resolve('./static/html/index.html'));
-});
+// userRouter.get('^/$|/eShop', (req, res) => {
+//     res.status(200).sendFile(path.resolve('./static/html/index.html'));
+// });
 
 // Fetch all users
 userRouter.get('/', (req, res) => {
@@ -30,13 +29,13 @@ userRouter.post('/register', async (req, res) => {
 });
 
 // Update a user by ID
-userRouter.patch('/user/:id', async (req, res) => {
+userRouter.patch('/:id', async (req, res) => {
     await users.updateUser(req, res);
 });
 
 // Delete a user by ID
-userRouter.delete('/delete/:id', async (req, res) => {
-    await users.deleteUser(req, res);
+userRouter.delete('/:id',  (req, res) => {
+     users.deleteUser(req, res);
 });
 
 // Login a user
