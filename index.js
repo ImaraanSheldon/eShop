@@ -1,8 +1,7 @@
-import express from 'express';
-import path from 'path';
-import { userRouter } from './controller/userController.js';
-import { productsRouter } from './controller/productsController.js';
-import bodyParser from 'body-parser';
+import { userRouter, express } from "./controller/userController";
+import { productsRouter } from "./controller/productsController";
+import path from 'path'
+
 
 // Create an express app
 const app = express();
@@ -13,7 +12,6 @@ app.use(express.static('./static'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 // Routers
 app.use('/users', userRouter);
 app.use('/products', productsRouter);
