@@ -10,6 +10,11 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 // Routers
+app.use((req,res, next)=>{
+    res.header("Access-Control-Allow-Origin","*");
+    next()
+})
+
 app.use('/users', userRouter);
 app.use('/products', productsRouter);
 

@@ -21,7 +21,7 @@ productsRouter.get('/:id', (req, res) => {
 });
 
 // Register a new product
-productsRouter.post('/add',verifyToken, (req, res) => {
+productsRouter.post('/add', (req, res) => {
     products.addProduct(req, res);
 });
 
