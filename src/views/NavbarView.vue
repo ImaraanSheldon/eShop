@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./HomeView.vue">Home</a>
+          <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./AboutView.vue">About</a>
+          <router-link class="nav-link" to="/about">About</router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
